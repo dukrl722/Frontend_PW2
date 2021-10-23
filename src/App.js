@@ -1,17 +1,24 @@
 import React from "react";
 
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./routes";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-function App() {
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Events from './pages/Events';
+import EventTasks from './pages/EventTasks';
+
+export default function App() {
 
 	return (
 		<>
 			<BrowserRouter>
-				<Routes />
+				<Switch>
+					<Route path="/" exact component={Login} />
+					<Route path="/signup" component={SignUp} />
+					<Route path="/event" component={Events} />
+					<Route path="/event/:eventId+" component={EventTasks} />
+				</Switch>
 			</BrowserRouter>
 		</>
 	);
 }
-
-export default App;
