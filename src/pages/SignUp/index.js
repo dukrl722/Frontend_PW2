@@ -8,6 +8,8 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const history = useHistory();
+
     async function handleSubmitSignUp(event) {
         event.preventDefault();
 
@@ -23,9 +25,8 @@ export default function SignUp() {
                 level: 2
             });
 
-            console.log(result);
+            history.push('/');
         } catch (err) {
-
         }
     }
 

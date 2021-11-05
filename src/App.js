@@ -16,7 +16,7 @@ export default function App() {
 					<Route path="/" exact component={Login} />
 					<Route path="/signup" component={SignUp} />
 					<Route path="/event" component={Events} />
-					<Route path="/event/:eventId+" component={EventTasks} />
+					<Route path="/event/:event+" component={EventTasks} />
 				</Switch>
 			</BrowserRouter>
 		</>

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
+import { useHistory } from 'react-router';
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const history = useHistory();
 
     async function handleSubmitLogin(event) {
         event.preventDefault();
@@ -14,7 +17,10 @@ export default function Login() {
             password: password,
         });
 
-        console.log(result);
+        if (result) {
+            localStorage.setItem('level', result.data.user.level);
+            history.push('/event');
+        }
     }
 
     return (
